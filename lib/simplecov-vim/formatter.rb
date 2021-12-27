@@ -17,7 +17,7 @@ module SimpleCov::Formatter
       dir_re = /^#{common_directory(result.filenames)}\//
       result.filenames.zip(result.original_result.values_at(*result.filenames)).each do |name, lines|
         results[name.sub(dir_re, "")] = file_results = {hits: [], misses: []}
-        lines.each_with_index do |hits, line|
+        lines["lines"].each_with_index do |hits, line|
           case hits
           when nil
           when 0
